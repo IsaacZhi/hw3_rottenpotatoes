@@ -41,10 +41,13 @@ end
 Then /I should see all of the movies/ do
   rows = 0
   if  page.body != nil then
-    movielistindex = page.body.index("movielist")
-    movielistbody = (page.body)[movielistindex, page.body.length - 1]
-    if movielistbody != nil then
-      movielistbody.gsub(/<tr>/) { |word| rows += 1 }
+    p page.body
+    p movielistindex = page.body.index("movielist")
+    if movielistindex != nil then
+      movielistbody = (page.body)[movielistindex, page.body.length - 1]
+      if movielistbody != nil then
+        movielistbody.gsub(/<tr>/) { |word| rows += 1 }
+      end
     end
   end
   rows.should == 10 
