@@ -38,5 +38,9 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 Then /I should see all of the movies/ do
-  
+  movielistindex = page.body.rindex("movielist")
+  rows = 0
+  movielistbody = (page.body)[movielistindex, page.body.length - 1]
+  movielistbody.gsub(/<tr>/) { |word| rows += 1 }
+  rows.should == 10 
 end
