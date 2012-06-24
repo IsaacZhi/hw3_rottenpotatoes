@@ -35,10 +35,12 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
 Scenario: no ratings selected
   # see assignment
+#  When I uncheck the following ratings: G, PG, PG-13, NC-17, R
+#  When I press "Refresh"
 
 Scenario: all ratings selected
   # see assignment
-  When I check the following ratings: G, PG, PG-13, NC-17, R
+  When I check the following ratings: PG, R, G, PG-13, NC-17
   When I press "Refresh"
   Then I should see all of the movies
 

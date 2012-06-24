@@ -41,8 +41,8 @@ end
 Then /I should see all of the movies/ do
   rows = 0
   if  page.body != nil then
-    p page.body
-    p movielistindex = page.body.index("movielist")
+#p page.body
+    movielistindex = page.body.index("More Info")
     if movielistindex != nil then
       movielistbody = (page.body)[movielistindex, page.body.length - 1]
       if movielistbody != nil then
