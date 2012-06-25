@@ -16,7 +16,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
 #flunk "Unimplemented"
-  order = page.body.gsub(/#{e1}.*#{e2}/)
+  order = /#{e1}.*#{e2}/m.match( page.body )
   order.should_not == nil
 end
 
